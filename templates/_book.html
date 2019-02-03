@@ -1,0 +1,17 @@
+<div class="row my-4">
+  <div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-0">
+
+    <img class="img img-fluid" src="{{ card.src }}"
+         alt="Book cover for {{ card.name }} by {{ card.meta.author }} published by Africana Publishers">
+  </div>
+  <div class="col-12 col-md-6 col-lg-8">
+    <h2>{{ card.name }}</h2>
+
+    <p><strong>{{ card.meta.author }}</strong></p>
+    <p><strong>R{{ card.meta.price }}</strong>
+      {% if card.meta.pages%}| {{ card.meta.pages }}p. {% endif %}
+      {% if card.meta.isbn %}| ISBN {{ card.meta.isbn }}{% endif %}
+    </p>
+    <div>{{ card.description_html|safe }}</div>
+  </div>
+</div>

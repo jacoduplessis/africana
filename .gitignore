@@ -1,0 +1,7 @@
+dist
+images
+*.docx
+*.doc
+.idea
+venv
+data

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading mb-3">Africana Publishers</h1>
+
+        <p class="lead">We publish texts relating to South Africa and Africana, including the VOC and the
+          Cape.</p>
+        <p class="lead">Authors are invited to present their manuscripts for possible publication.</p>
+        <div class="row mt-4">
+
+          <div class="col-12 col-md-6 text-left">
+            <p>
+              <strong>Piet Westra</strong><br>
+              190 Pinewood Village<br>
+              Pinelands 7405<br>
+              Tel: <a href="tel:+27215327590">+27 (0) 21 532 7590</a><br>
+              Cell: <a href="tel:+27834157678">+27 (0) 83 415 7678</a><br>
+              Email: <a href="mailto:africanapublishers@mwebbiz.co.za">africanapublishers@mwebbiz.co.za</a>
+            </p>
+          </div>
+          <div class="col-12 col-md-6 text-left">
+            <p>Orders can be placed by sending an email to <a href="mailto:africanapublishers@mwebbiz.co.za">africanapublishers@mwebbiz.co.za</a>.
+            </p>
+            <p>Please note that postage will be added to prices listed below if relevant.</p>
+            <p>Also selling Africana Books. Lists available on request.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="container">
+
+      <h2>Our Books</h2>
+
+      {% for card in boards.get("AfshWztp").list_by_name('books').cards %}
+        {% include '_book.html' %}
+      {% endfor %}
+
+      <h2 class="my-5">Other books available</h2>
+
+      {% for card in boards.get("AfshWztp").list_by_name('other').cards %}
+        {% include '_book.html' %}
+      {% endfor %}
+
+    </div>
+
+  </main>
+{% endblock content %}
