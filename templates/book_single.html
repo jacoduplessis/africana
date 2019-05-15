@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ card.name }} — Africana Publishers{% endblock %}
+
+{% block content %}
+
+  {% include '_nav.html' %}
+
+  <div class="container py-5" itemscope="" itemtype="http://schema.org/Book" >
+
+    <h1 itemprop="name">{{ card.name }}</h1>
+    <hr>
+
+    <div class="row mt-3">
+
+
+      <div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-0">
+
+        <img class="img img-fluid img-shadow" src="{{ card.src }}"
+             alt="Book cover for {{ card.name }} by {{ card.meta.author }} published by Africana Publishers">
+      </div>
+      <div class="col-12 col-md-6 col-lg-8">
+
+        <p><strong itemprop="author">{{ card.meta.author }}</strong></p>
+        <p><strong>R{{ card.meta.price }}</strong>
+          {% if card.meta.pages %}| <span itemprop="numberOfPages">{{ card.meta.pages }}</span>p. {% endif %}
+          {% if card.meta.isbn %}| ISBN <span itemprop="isbn">{{ card.meta.isbn }}</span>{% endif %}
+        </p>
+        <div>{{ card.description_html|safe }}</div>
+
+        <div class="p-4 bg-light">
+          <p class="m-0">Orders can be placed by sending an email to <a href="mailto:africanapublishers@mwebbiz.co.za">africanapublishers@mwebbiz.co.za</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

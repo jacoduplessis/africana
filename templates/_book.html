@@ -1,16 +1,16 @@
 <div class="row my-4">
   <div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-0">
 
-    <img class="img img-fluid" src="{{ card.src }}"
-         alt="Book cover for {{ card.name }} by {{ card.meta.author }} published by Africana Publishers">
+    <a href="{{ card.url }}"><img class="img img-fluid img-shadow" src="{{ card.src }}"
+         alt="Book cover for {{ card.name }} by {{ card.meta.author }} published by Africana Publishers"></a>
   </div>
-  <div class="col-12 col-md-6 col-lg-8">
-    <h2>{{ card.name }}</h2>
+  <div class="col-12 col-md-6 col-lg-8" itemscope="" itemtype="http://schema.org/Book">
+    <h2 itemprop="name">{{ card.name }}</h2>
 
-    <p><strong>{{ card.meta.author }}</strong></p>
+    <p><strong itemprop="author">{{ card.meta.author }}</strong></p>
     <p><strong>R{{ card.meta.price }}</strong>
-      {% if card.meta.pages%}| {{ card.meta.pages }}p. {% endif %}
-      {% if card.meta.isbn %}| ISBN {{ card.meta.isbn }}{% endif %}
+      {% if card.meta.pages%}| <span itemprop="numberOfPages">{{ card.meta.pages }}</span>p. {% endif %}
+      {% if card.meta.isbn %}| ISBN <span itemprop="isbn">{{ card.meta.isbn }}</span>{% endif %}
     </p>
     <div>{{ card.description_html|safe }}</div>
   </div>

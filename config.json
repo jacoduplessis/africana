@@ -1,8 +1,11 @@
 {
   "boards": {
     "AfshWztp": {
-      "type": "Book",
-      "type_plural": "Books"
+      "object": "book",
+      "slug": "books",
+      "type_name": "Book",
+      "type_name_plural": "Books",
+      "template_single": "book_single.html"
     }
   }
 }
